@@ -22,15 +22,16 @@ public class Aluno {
     }
 
     public void finalizarCurso(Curso curso) {
-        if (mensalidade != null && mensalidade.isPendente()) {
-            acessoAoCurso = false;
-            plataformaCongelada = true;
-            return;
-        }
-
-        if (media >= 7.0) {
-            cursosLiberados = 3;
-        }
+//        if (mensalidade != null && mensalidade.isPendente()) {
+//            acessoAoCurso = false;
+//            plataformaCongelada = true;
+//            return;
+//        }
+//
+//        if (media >= 7.0) {
+//            cursosLiberados = 3;
+//        }
+        throw new UnsupportedOperationException("Ainda não implementado");
     }
 
     public double getMedia() {
