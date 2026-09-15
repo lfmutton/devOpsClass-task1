@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AlunoCursoTest {
+
+    //Mute
     @Test
     void quandoIniciadoUmCurso() {
         // DADO
@@ -20,6 +22,7 @@ class AlunoCursoTest {
         assertFalse(curso.isFinalizado());
     }
 
+    //Mute
     @Test
     void deveBloquearAcessoQuandoMensalidadeNaoForPaga() {
         // DADO
@@ -33,5 +36,22 @@ class AlunoCursoTest {
         // ENTÃO
         assertFalse(aluno.temAcessoAoCurso());
         assertTrue(aluno.isPlataformaCongelada());
+    }
+
+    //Will
+    @Test
+    void deveLiberarCursosQuandoMensalidadeEstaPaga() {
+        // DADO
+        var curso = new Curso();
+        var mensalidade = new Mensalidade(StatusMensalidade.PAGA);
+        var aluno = new Aluno(8.0, mensalidade);
+
+        // QUANDO
+        aluno.finalizarCurso(curso);
+
+        // ENTÃO
+        assertTrue(aluno.temAcessoAoCurso());
+        assertFalse(aluno.isPlataformaCongelada());
+        assertEquals(3, aluno.getCursosLiberados());
     }
 }
