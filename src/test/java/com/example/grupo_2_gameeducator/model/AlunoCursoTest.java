@@ -54,4 +54,18 @@ class AlunoCursoTest {
         // ENTÃO
         assertEquals(3, aluno.getCursosLiberados());
     }
+
+    //Lucas
+    @Test
+    void naoDeveLiberarCursosAoFinalizarCursoComMediaAbaixoDeSete() {
+        // DADO
+        var curso = new Curso();
+        var aluno = new Aluno(5.0);
+
+        // QUANDO
+        aluno.finalizarCurso(curso);
+
+        // ENTÃO
+        assertEquals(0, aluno.getCursosNaoLiberados());
+    }
 }
