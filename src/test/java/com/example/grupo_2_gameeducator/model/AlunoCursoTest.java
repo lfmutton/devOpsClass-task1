@@ -40,4 +40,18 @@ class AlunoCursoTest {
         assertFalse(aluno.temAcessoAoCurso());
         assertTrue(aluno.isPlataformaCongelada());
     }
+
+    // Aliffer
+    @Test
+    void deveLiberarTresCursosAoFinalizarCursoComMediaAcimaDeSete() {
+        // DADO
+        var curso = new Curso();
+        var aluno = new Aluno(8.0);
+
+        // QUANDO
+        aluno.finalizarCurso(curso);
+
+        // ENTÃO
+        assertEquals(3, aluno.getCursosLiberados());
+    }
 }
